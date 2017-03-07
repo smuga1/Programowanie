@@ -6,52 +6,65 @@ namespace Samochod
 {
     class StandardowyCzlowiek
     {
-        private int _wiek;
-        private string _imie;
-        private string _miejscePochodzenia;
-        private int _iloscKosci;
-        private int iloscChromosomow;
+        private int wiek;
+        private string imie;
+        private string miejscePochodzenia;
+        private static int iloscKosci = 206;
+        private static int iloscChromosomow = 46;
 
-        public StandardowyCzlowiek()
+        public StandardowyCzlowiek(int wiek, string imie, string miejscePochodzenia)
         {
-            this._wiek = wiek;
-            this._imie = imie;
-            this._miejscePochodzenia = miejscePochodzenia;
-            this._iloscKosci = 206;
-            this._iloscChromosomow = 46;
+            this.wiek = wiek;
+            this.imie = imie;
+            this.miejscePochodzenia = miejscePochodzenia;
+            
+        }    
+        public int sredniaWieku(List<StandardowyCzlowiek> lista)
+        {
+            int suma = 0;
+            foreach (var ob in lista)
+            {   
+                suma += ob.wiek;
+                Console.WriteLine(ob.imie);
+            }
+            return suma / lista.Count();
         }
 
+        public static void miejscaPochodzenia(List<StandardowyCzlowiek> lista)
+        {
+            Dictionary<string, int> slownik = new Dictionary<string, int>();
 
-        
+            foreach (var ob in lista)
+            {
+                if (!slownik.ContainsKey(ob.miejscePochodzenia)) slownik.Add(ob.miejscePochodzenia, new int());
+                slownik[ob.miejscePochodzenia]++;
+            }
 
-        public int sredniaWieku(int wiek) {
-
-            int srednia = 0;
-            srednia = srednia + wiek;
-
-            return srednia;
         }
 
-        public void wypiszImiona(int imie) { }
-
-        public void miejscaPochodzenia(string miejscePochodzenia) { }
-
-        public void daneStandardowe(int iloscKosci, int iloscChromosomow) { }
-
-
+        public void daneStandardowe()
+        {
+            Console.WriteLine("Ilosc Kosci: " + iloscKosci);
+            Console.WriteLine("Ilosc Chromosomow: " + iloscChromosomow);
+        }
     }
-   
-
     class Program
     {
         static void Main(string[] args)
         {
 
-            StandardowyCzlowiek czlowiek1 = new StandardowyCzlowiek(24, "Jan", Olsztyn);
-            StandardowyCzlowiek czlowiek2 = new StandardowyCzlowiek(25, "Ania", Warszawa);
+            StandardowyCzlowiek czlowiek1 = new StandardowyCzlowiek(24, "Jan", "Olsztyn");
+            StandardowyCzlowiek czlowiek2 = new StandardowyCzlowiek(25, "Ania", "Warszawa");
+            StandardowyCzlowiek czlowiek3 = new StandardowyCzlowiek(25, "Basia", "Warszawa");
+            StandardowyCzlowiek czlowiek4 = new StandardowyCzlowiek(26, "Ania", "Warszawa");
 
+            List<StandardowyCzlowiek> lista = new List <StandardowyCzlowiek>();
+            lista.Add(czlowiek1);
+            lista.Add(czlowiek2);
+            lista.Add(czlowiek3);
+            lista.Add(czlowiek4);
+            
 
-            Console.ReadKey();
         }
     }
 }
