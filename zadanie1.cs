@@ -55,14 +55,10 @@ namespace Samochod
             List<Samochód> lista_pojazdow = new List<Samochód>() {A,B,C };
             foreach(var samochod in lista_pojazdow)
             {
-                Console.WriteLine("{0} samochód marki {1} jedzie z predkoscia {2}", samochod.Kolor, samochod.Marka, samochod.Predkosc);
-                Console.WriteLine("Domyslna ilosc kół używanych jednoczenie w samochodzie {0}", samochod.LiczbaKol);
+                Console.WriteLine("{0} samochód marki {1} jedzie z predkoscia {2}", samochod.Kolor.toString(), samochod.Marka.toString(), samochod.Predkosc.toString());
+                Console.WriteLine("Domyslna ilosc kół używanych jednoczenie w samochodzie {0}", samochod.LiczbaKol.toString());
             }
             Console.ReadKey();
-
-
-
-
         }
     }
 }
