@@ -6,8 +6,8 @@ namespace Samochod
 {
     class KontoBankowe
     {
-        private string _imieNazwisko;
-        private int[] _numerKonta;
+        public string _imieNazwisko;
+        public int[] _numerKonta;
         private double _fundusze;
         private int _idKonta;
         private bool _doUsuniecia;
