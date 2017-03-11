@@ -20,7 +20,7 @@ namespace Samochod
             this.Kolor = kol;
         }
 
-        public Samochód(string kol = "Czarny", int rok = 2016)
+        public Samochód(string kol, int rok)
         {
             this.Kolor = kol;
             this.Rocznik = rok;
