@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,7 +46,7 @@ namespace DruzynaPierscieniaCNSL
 
     class Mag : Bohater
     {
-        public int mana = 150;
+        private int mana;
 
         public void RzucCzar(Bohater r) {
             Console.WriteLine(this.rasa.ToString() + " " + imie + " rzuca czar!");
@@ -55,8 +55,9 @@ namespace DruzynaPierscieniaCNSL
             BijWroga(r);
         }
 
-        public Mag(Rasa r, string im, int zycie, int obrazenia, int def) : base(r, im, zycie, obrazenia, def)
+        public Mag(Rasa r, string im, int zycie, int obrazenia, int def, int mana) : base(r, im, zycie, obrazenia, def)
         {
+            this.mana = mana;
         }
     }
 
@@ -74,7 +75,7 @@ namespace DruzynaPierscieniaCNSL
     }
     class Rzezimieszek : Bohater
     {
-        public int energia = 100;
+        private int energia;
 
         public void Walcz(Bohater r)
         {
@@ -83,8 +84,9 @@ namespace DruzynaPierscieniaCNSL
             BijWroga(r);
         }
 
-        public Rzezimieszek(Rasa r, string im, int zycie, int obrazenia, int def) : base(r, im, zycie, obrazenia, def)
+        public Rzezimieszek(Rasa r, string im, int zycie, int obrazenia, int def, int energia) : base(r, im, zycie, obrazenia, def)
         {
+            this.energia = energia;
         }
     }
     class Ork : Bohater
@@ -98,9 +100,9 @@ namespace DruzynaPierscieniaCNSL
     {
         static void Main(string[] args)
         {
-            Mag MAG = new Mag(Rasa.Elf, "Gandalf", 100, 20, 10);
+            Mag MAG = new Mag(Rasa.Elf, "Gandalf", 100, 20, 10, 160);
             Wojownik WOJ = new Wojownik(Rasa.Człowiek, "Janusz", 200, 10, 50);
-            Rzezimieszek RZEZ = new Rzezimieszek(Rasa.Krasnolud, "Zbój", 150, 10, 40);
+            Rzezimieszek RZEZ = new Rzezimieszek(Rasa.Krasnolud, "Zbój", 150, 10, 40, 120);
             Ork ORK = new Ork(Rasa.Ork, "Uruk-Hai", 300, 30, 60);
             WOJ.SprawdzHp();
             MAG.SprawdzHp();
