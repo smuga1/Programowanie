@@ -15,11 +15,11 @@ namespace DruzynaPierscieniaCNSL
 
     public abstract class Bohater : IBohater
     {
-        public Rasa rasa;
-        public string imie;
-        public int hp;
-        public int atak;
-        public int obrona;
+        private Rasa rasa;
+        private string imie;
+        private int hp;
+        private int atak;
+        private int obrona;
 
         public Bohater(Rasa r, string im, int zycie, int obrazenia, int def)
         {
