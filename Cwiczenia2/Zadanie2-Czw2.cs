@@ -16,7 +16,7 @@ namespace DruzynaPierscieniaCNSL
     public abstract class Bohater : IBohater
     {
         private Rasa rasa;
-        private string imie;
+        public string imie;
         private int hp;
         private int atak;
         private int obrona;
@@ -32,16 +32,32 @@ namespace DruzynaPierscieniaCNSL
 
         public void BijWroga(Bohater x)
         {
-            Console.WriteLine(this.rasa.ToString() + " " + imie + " zadaje " + this.atak + " punktow obrazen " + x.rasa + "owi " + x.imie);
-            x.hp -= this.atak;
+            if(!CzyMartwi(x))
+            {
+                x.Hp -= this.Atak;
+                Console.WriteLine(this.Rasa.ToString() + " " + this.Imie + " zadaje " + this.Atak + " punktow obrazen " + x.Rasa + "owi " + x.Imie);
+            }
+               
         }
         public void SprawdzHp()
         {
-            Console.WriteLine(this.rasa.ToString() + " " + imie + " posiada " + this.hp + " punktow hp");
-
-            if (this.hp == 0) {Console.WriteLine(this.rasa.ToString() + " " + imie + " umiera."); } 
+            Console.WriteLine(this.Rasa.ToString() + " " + this.Imie + " posiada " +  this.Hp + " punktow hp");
         }
 
+        bool CzyMartwi(Bohater x)
+        {
+            if (this.Hp <= 0)
+            {
+                Console.WriteLine("Twoj bohater jest martwy");
+                return true;
+            }
+            else if (x.Hp <= 0)
+            {
+                Console.WriteLine("Twoj przeciwnik jest martwy");
+                return true;
+            }
+            return false;
+        }
     }
 
     class Mag : Bohater
